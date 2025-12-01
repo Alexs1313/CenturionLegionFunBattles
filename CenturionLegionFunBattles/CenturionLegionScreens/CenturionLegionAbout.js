@@ -79,7 +79,11 @@ Everything is as simple as possible, without unnecessary screens and complicated
           <CenturionLegionButton
             buttonWidth="100%"
             btnText="SHARE APP"
-            onPress={() => Linking.openURL('')}
+            onPress={() =>
+              Linking.openURL(
+                'https://apps.apple.com/us/app/centurion-legion-fun-battles/id6755958469',
+              )
+            }
           />
         </View>
       </View>

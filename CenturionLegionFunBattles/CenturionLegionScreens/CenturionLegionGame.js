@@ -495,27 +495,29 @@ export default function CenturionLegionFullGame() {
             </Text>
 
             <View style={styles.centurionLegionScoreUnderline} />
+            {Object.entries(centurionLegionScores)
+              .sort((a, b) => b[1] - a[1])
+              .map(([name, score], i) => (
+                <View key={i} style={styles.centurionLegionResultRow}>
+                  <Text
+                    style={[
+                      styles.centurionLegionScoreRow,
+                      i === 0 && styles.centurionLegionBestTextName,
+                    ]}
+                  >
+                    {name}
+                  </Text>
 
-            {Object.entries(centurionLegionScores).map(([name, score], i) => (
-              <View key={i} style={styles.centurionLegionResultRow}>
-                <Text
-                  style={[
-                    styles.centurionLegionScoreRow,
-                    i === 0 && styles.centurionLegionBestTextName,
-                  ]}
-                >
-                  {name}
-                </Text>
-                <Text
-                  style={[
-                    styles.centurionLegionScoreRow,
-                    i === 0 && styles.centurionLegionBestTextName,
-                  ]}
-                >
-                  {score}
-                </Text>
-              </View>
-            ))}
+                  <Text
+                    style={[
+                      styles.centurionLegionScoreRow,
+                      i === 0 && styles.centurionLegionBestTextName,
+                    ]}
+                  >
+                    {score}
+                  </Text>
+                </View>
+              ))}
 
             <View style={styles.centurionLegionScoreUnderline} />
 
