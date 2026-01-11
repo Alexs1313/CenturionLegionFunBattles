@@ -12,10 +12,12 @@ const CenturionLegionOnboard = () => {
     <CenturionLegionLayout>
       <View style={styles.centurionlegioncontainer}>
         {welcomeCenturionIndex === 0 ? (
-          <Image
-            source={require('../../assets/images/centurionlegionon1.png')}
-            style={{ top: 80 }}
-          />
+          <View>
+            <Image
+              source={require('../../assets/images/centurionlegionon1.png')}
+              style={{ top: 80 }}
+            />
+          </View>
         ) : welcomeCenturionIndex === 1 ? (
           <View>
             <View

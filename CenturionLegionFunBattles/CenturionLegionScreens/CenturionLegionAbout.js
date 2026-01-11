@@ -6,6 +6,7 @@ import {
   Image,
   Linking,
   Platform,
+  Share,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -54,9 +55,16 @@ const CenturionLegionAbout = () => {
                   padding: 20,
                 }}
               >
-                <Image
-                  source={require('../../assets/images/centurionaboutlogo.png')}
-                />
+                {Platform.OS === 'ios' ? (
+                  <Image
+                    source={require('../../assets/images/centurionaboutlogo.png')}
+                  />
+                ) : (
+                  <Image
+                    source={require('../../assets/images/icon.png')}
+                    style={{ width: 200, height: 200, borderRadius: 40 }}
+                  />
+                )}
                 <Text
                   style={{
                     fontSize: 16,
@@ -78,11 +86,18 @@ Everything is as simple as possible, without unnecessary screens and complicated
 
           <CenturionLegionButton
             buttonWidth="100%"
-            btnText="SHARE APP"
+            btnText={Platform.OS === 'android' ? 'SHARE' : 'SHARE APP'}
             onPress={() =>
-              Linking.openURL(
-                'https://apps.apple.com/us/app/centurion-legion-fun-battles/id6755958469',
-              )
+              Platform.OS === 'android'
+                ? Share.share({
+                    message: `Centurion Legion Fun Battles is a simple and fun game for a company, where you choose the mode yourself and complete short tasks: mini-battles, daring actions, logical challenges or dynamic movements.
+The game shows whose turn it is now, gives tasks, and after the rounds determines the best player.
+
+Everything is as simple as possible, without unnecessary screens and complicated rules - only the atmosphere of Rome and good company.`,
+                  })
+                : Linking.openURL(
+                    'https://apps.apple.com/app/centurion-legion-fun-battles/id1669246931',
+                  )
             }
           />
         </View>

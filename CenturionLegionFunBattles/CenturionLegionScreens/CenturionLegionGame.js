@@ -289,6 +289,20 @@ export default function CenturionLegionFullGame() {
               />
             )}
         </View>
+
+        {Platform.OS === 'android' && (
+          <Image
+            source={require('../../assets/images/legionCherry.png')}
+            style={{
+              width: 250,
+              height: 250,
+              position: 'absolute',
+              bottom: -50,
+              right: -50,
+              zIndex: -1,
+            }}
+          />
+        )}
       </CenturionLegionLayout>
     );
   }
@@ -424,11 +438,13 @@ export default function CenturionLegionFullGame() {
           <ImageBackground
             source={require('../../assets/images/centurionlegionframe.png')}
             style={styles.centurionLegionTaskFrame}
+            resizeMode="contain"
           >
             {centurionLegionCurrentMode && (
               <Image
                 source={centurionLegionCurrentMode.icon}
-                style={{ marginBottom: 4 }}
+                style={{ marginBottom: 4, width: 99, height: 99 }}
+                resizeMode="contain"
               />
             )}
 
@@ -576,6 +592,20 @@ export default function CenturionLegionFullGame() {
             />
           </View>
         </View>
+
+        {Platform.OS === 'android' && (
+          <Image
+            source={require('../../assets/images/grape.png')}
+            style={{
+              width: 200,
+              height: 200,
+              position: 'absolute',
+              bottom: -10,
+              right: -20,
+              zIndex: -1,
+            }}
+          />
+        )}
       </CenturionLegionLayout>
     );
   }
@@ -680,6 +710,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: '#fff',
     fontFamily: 'Jaro-Regular',
+    textAlign: 'center',
   },
   centurionLegionModeDesc: {
     fontSize: 16,
@@ -757,17 +788,18 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   centurionLegionTaskTitle: {
-    fontSize: 25,
+    fontSize: 22,
     fontFamily: 'Jaro-Regular',
     color: '#000000',
     textAlign: 'center',
   },
   centurionLegionTaskText: {
-    fontSize: 18,
+    fontSize: 17,
     fontFamily: 'Jaro-Regular',
     color: '#6E6E6E',
     textAlign: 'center',
-    marginTop: 6,
+    marginTop: 4,
+    paddingHorizontal: 15,
   },
   centurionLegionSkipTouchable: {
     width: '100%',

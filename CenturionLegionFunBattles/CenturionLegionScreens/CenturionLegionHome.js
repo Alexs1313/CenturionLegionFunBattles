@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, Platform, StyleSheet, View } from 'react-native';
 import CenturionLegionLayout from '../CenturionLegionComponents/CenturionLegionLayout';
 import CenturionLegionButton from '../CenturionLegionComponents/CenturionLegionButton';
 import { useNavigation } from '@react-navigation/native';
@@ -12,13 +12,27 @@ const CenturionLegionHome = () => {
     <CenturionLegionLayout>
       <View style={styles.centurionlegioncontainer}>
         <View>
-          <Image
-            source={require('../../assets/images/centurionleglogo.png')}
-            style={{ position: 'absolute', top: -20, alignSelf: 'center' }}
-          />
+          {Platform.OS === 'ios' ? (
+            <Image
+              source={require('../../assets/images/centurionleglogo.png')}
+              style={{ position: 'absolute', top: -20, alignSelf: 'center' }}
+            />
+          ) : (
+            <Image
+              source={require('../../assets/images/icon.png')}
+              style={{
+                position: 'absolute',
+                top: -40,
+                alignSelf: 'center',
+                width: 200,
+                height: 200,
+                borderRadius: 40,
+              }}
+            />
+          )}
           <Image
             source={require('../../assets/images/centurionlegionon1.png')}
-            style={{ top: 60 }}
+            style={{ top: 80 }}
           />
         </View>
 
